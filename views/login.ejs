@@ -1,0 +1,18 @@
+
+<%- include("partials/_menu") %>
+
+<main>
+  <div class="register-form">
+      <h2>Login</h2>
+      <form action="users/login" method="POST">
+          <label for="username">username:</label>
+          <input type="text" id="username" name="username" >
+          
+          <label for="password">password:</label>
+          <input type="password" id="password" name="password" >
+          
+          <button type="submit">Login</button>
+      </form>
+  </div>
+</main>
+</html>

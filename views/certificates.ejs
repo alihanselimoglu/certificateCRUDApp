@@ -1,0 +1,115 @@
+
+    <%- include("partials/_menu") %>
+
+    <style>
+        /* Stil modifikasyonları için CSS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <div style="text-align: center;">
+    </div>
+
+  <button id="openModalBtn" style="text-align: center; margin-left: 723px; margin-top: 20px; background-color: aqua; height: 40px; width: 160px;" class="btn btn-primary" onclick="openModal()">Sertifika Ekle</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="certificateModal" tabindex="-1" role="dialog" aria-labelledby="certificateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel">Sertifika Bilgileri</h5>
+                    <button type="button" class="close" onclick="closeModal()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="certificateForm" method="POST" action="/certificates" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="certificateName">Sertifika Adı:</label>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="certificateDescription">Sertifika Açıklaması:</label>
+                            <textarea class="form-control" name="description" id="description" rows="1" required></textarea>
+                        </div>
+                        <div>
+                            <input type="file" name="image">
+                        </div>
+                        <button type="submit" onclick="closeModal()" class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="certificatesDiv">
+            <% for (certificate of certificates) { %>
+                <a href="certificates/<%= certificate._id %>"">
+                    <h3 class="certificates">
+                        <div>
+                            <li>
+                                <%= certificate.name %>
+                            </li>
+                            <div>
+                                <img style="width: 320px; height:180px" src="<%= certificate.url %>" >
+                            </div>
+                        </div>
+                    </h3></a>
+                    <!-- <p style="padding-top: 10px; padding-bottom: 10px;">
+                        <%= certificate.description %>
+                    </p>     -->
+                    
+                <% } %>
+        </div>
+    </div>
+
+
+
+
+    
+
+    <script>
+        // Modalı açma işlemi
+        function openModal() {
+            document.getElementById('certificateModal').style.display = 'block';
+        }
+
+        // Modalı kapatma işlemi
+        function closeModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+        
+    </script>
+</body>
+</html>

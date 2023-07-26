@@ -1,0 +1,27 @@
+{
+  "name": "mainproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.39.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "file-upload": "^0.0.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.0",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
