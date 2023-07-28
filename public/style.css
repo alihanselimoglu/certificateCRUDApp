@@ -1,127 +1,127 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #333;
-  color: rgb(46, 144, 230);
-  padding: 10px 20px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-}
-
-.menu li {
-  margin-left: 20px;
-}
-
-.menu li a {
-  text-decoration: none;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.menu li a:hover {
-  background-color: #555;
-}
-
-main {
-  padding: 20px;
-}
-
-.register-form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-}
-
-.register-form h2 {
-  margin-bottom: 20px;
-}
-
-.register-form label {
-  display: block;
-  margin-bottom: 5px;
-  margin-top: 10px;
-
-}
-
-.register-form input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.register-form button {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.register-form button:hover {
-  background-color: #555;
-}
-
-.certificatesDiv {
-  margin-top: 100px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.certificates {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.certificates li {
-  display: block;
-  margin-bottom: 10px;
-  background-color: #45a27b;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-}
-.alert {
-  position: relative;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-}
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #333;
+    color: rgb(46, 144, 230);
+    padding: 10px 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-left: 20px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .menu li a:hover {
+    background-color: #555;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+  
+  .register-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .register-form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  
+  }
+  
+  .register-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .register-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-form button:hover {
+    background-color: #555;
+  }
+  
+  .certificatesDiv {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .certificates {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .certificates li {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #45a27b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  .alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }

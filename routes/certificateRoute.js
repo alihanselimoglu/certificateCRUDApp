@@ -11,6 +11,8 @@ router
   .get(authMiddleware.authendicateToken, certificateController.getAllCertificates);
 
 router.route("/:id").get(certificateController.getACertificate)
+router.route("/:id").delete(certificateController.deleteCertificate)
+router.route("/:id").put(certificateController.updateCertificate)
 
 
 module.exports = router;

@@ -1,8 +1,10 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const fileupload = require("express-fileupload")
-const cloudinary = require("cloudinary").v2
+const fileupload = require("express-fileupload");
+const methodOverride = require("method-override");
+
+const cloudinary = require("cloudinary").v2;
+const dotenv = require("dotenv");
 
 const conn = require("./db.js");
 const pageRoute = require("./routes/pageRoute.js");
@@ -15,8 +17,8 @@ dotenv.config();
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret : process.env.CLOUDINARY_API_SECRET
-})
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // connection to do db
 conn();
@@ -32,10 +34,11 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(fileupload({useTempFiles: true}));
+app.use(fileupload({ useTempFiles: true }));
+app.use(methodOverride("_method", { methods: ["POST", "GET"] }));
 
 //routes
-app.use("*", checkUser); 
+app.use("*", checkUser);
 app.use("/", pageRoute);
 app.use("/certificates", certificateRoute);
 app.use("/users", userRoute);

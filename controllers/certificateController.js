@@ -10,7 +10,7 @@ const createCertificate = async (req, res, next) => {
       {
         use_filename: true,
         folder: "certificaImages",
-      }
+      } 
     );
 
     console.log("result: ", result);
@@ -20,18 +20,19 @@ const createCertificate = async (req, res, next) => {
       description: req.body.description,
       user: res.locals.user._id,
       url: result.secure_url,
+      image_id: result.public_id,
     });
-    fs.unlinkSync(req.files.image.tempFilePath);
     res.status(201).redirect("/certificates");
-
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred during image upload.");
+  }finally{
+    fs.unlinkSync(req.files.image.tempFilePath);
   }
 };
 const getAllCertificates = async (req, res) => {
   try {
-    const certificates = await Certificate.find({user:res.locals.user._id});
+    const certificates = await Certificate.find({ user: res.locals.user._id });
     // const certificates = await Certificate.find({});
     res.status(200).render("certificates", {
       certificates,
@@ -50,5 +51,53 @@ const getACertificate = async (req, res) => {
     succeded: false, error;
   }
 };
+const deleteCertificate = async (req, res) => {
+  try {
+    const certificate = await Certificate.findById(req.params.id);
+    const certificateId = certificate.image_id;
+    await cloudinary.uploader.destroy(certificateId);
+    await Certificate.findOneAndRemove({_id: req.params.id});
+    res.status(200).redirect("/certificates");
+  } catch (error) {
+    succeded: false, console.error(error);
+  }
+};
 
-module.exports = { createCertificate, getAllCertificates, getACertificate };
+const updateCertificate = async (req, res) => {
+  try {
+    const certificate = await Certificate.findById(req.params.id);
+    if(req.files){
+      console.log("req.files: ", req.files);
+      const certificateId = certificate.image_id;
+      await cloudinary.uploader.destroy(certificateId);
+      
+      const result = await cloudinary.uploader.upload(
+        req.files.image.tempFilePath,
+        {
+          use_filename: true,
+          folder: "certificaImages",
+        }
+      );
+
+      certificate.url = result.secure_url;
+      certificate.image_id = result.public_id;
+      fs.unlinkSync(req.files.image.tempFilePath);
+    }
+    certificate.name = req.body.name;
+    certificate.description = req.body.description;
+
+    await certificate.save();
+    res.status(200).redirect(`/certificates/${req.params.id}`);
+  } catch (error) {
+    succeded: false, console.error(error);
+  }
+};
+
+
+module.exports = {
+  createCertificate,
+  getAllCertificates,
+  getACertificate,
+  deleteCertificate,
+  updateCertificate,
+};

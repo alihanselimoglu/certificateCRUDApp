@@ -25,6 +25,9 @@ const certificateSchema = new Schema({
     type: String,
     required: true,
   },
+  image_id: {
+    type: String,
+  },
 });
 
 const certificate = mongoose.model("Certificate", certificateSchema);

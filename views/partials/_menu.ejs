@@ -11,11 +11,13 @@
         <nav>
             <div class="logo">Logo</div>
             <ul class="menu">
+              <li><a href="/contact">Contact</a></li>
                 
                 <% if (user) { %>
                   <li><a href="/">Ana Sayfa</a></li>
                   <!-- <li><a href="/maintaince">Maintaince</a></li> -->
                   <li><a href="/users/dashboard">Dashboard</a></li>
+                  <!-- <li><a href="/users">Users</a></li> -->
                   <li><a href="/logout">Logout</a></li>
                 <% } else { %>
                   <li><a href="/login">Login</a></li>
