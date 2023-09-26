@@ -19,7 +19,7 @@
     "file-upload": "^0.0.0",
     "jsonwebtoken": "^9.0.1",
     "method-override": "^3.0.0",
-    "mongoose": "^7.4.0",
+    "mongoose": "^7.5.3",
     "nodemailer": "^6.9.4",
     "validator": "^13.9.0"
   },
